@@ -1,0 +1,118 @@
+﻿<!--页面底部-->
+		<div class="viewport">
+			<div id="footer" class="footer">
+				<div class="row g_1">
+					<a href="index.php">首页</a>
+					{if $user_name}<a href="user.php?act=user_center">用户中心</a>{else}<a href='user.php?act=login'>会员登录</a>{/if}
+					<a href="cart.php">购物车</a>
+				</div>
+				<div class="row g_2">
+					<a href="javascript:window.scrollTo(0,0);">返回顶部</a>
+				</div>
+				<div class="row g_3">
+					<p>©2014 {$shop_name}</p>
+				</div>
+			</div>
+		</div>
+<!--页面底部-->
+<link href="css/global_nav.css" type="text/css" rel="stylesheet"/>
+<div class="global-nav">
+    <div class="global-nav__nav-wrap">
+        <div class="global-nav__nav-item">
+            <a href="./" class="global-nav__nav-link">
+                <i class="global-nav__iconfont global-nav__icon-index">&#xf0001;</i>
+                <span class="global-nav__nav-tit">首页</span>
+            </a>
+        </div>
+        <div class="global-nav__nav-item">
+            <a href="category.php" class="global-nav__nav-link">
+                <i class="global-nav__iconfont global-nav__icon-category">&#xf0002;</i>
+                <span class="global-nav__nav-tit">分类</span>
+            </a>
+        </div>
+        <div class="global-nav__nav-item">
+            <a href="search.php" class="global-nav__nav-link">
+                <i class="global-nav__iconfont global-nav__icon-search">&#xf0003;</i>
+                <span class="global-nav__nav-tit">搜索</span>
+            </a>
+        </div>
+        <div class="global-nav__nav-item">
+            <a href="cart.php" class="global-nav__nav-link">
+                <i class="global-nav__iconfont global-nav__icon-shop-cart">&#xf0004;</i>
+                <span class="global-nav__nav-tit">购物车</span>
+                <span class="global-nav__nav-shop-cart-num" id="carId">{insert name='cart_info_number'}</span>
+            </a>
+        </div>
+        <div class="global-nav__nav-item">
+            <a href="user.php?act=order_list" class="global-nav__nav-link">
+                <i class="global-nav__iconfont global-nav__icon-my-yhd">&#xf0005;</i>
+                <span class="global-nav__nav-tit">我的订单</span>
+            </a>
+        </div>
+    </div>
+    <div class="global-nav__operate-wrap">
+        <span class="global-nav__yhd-logo"></span>
+        <span class="global-nav__operate-cart-num" id="globalId">{insert name='cart_info_number'}</span>
+    </div>
+</div>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript">
+Zepto(function($){
+   var $nav = $('.global-nav'), $btnLogo = $('.global-nav__operate-wrap');
+   //点击箭头，显示隐藏导航
+   $btnLogo.on('click',function(){
+     if($btnLogo.parent().hasClass('global-nav--current')){
+       navHide();
+     }else{
+       navShow();
+     }
+   });
+   var navShow = function(){
+     $nav.addClass('global-nav--current');
+   }
+   var navHide = function(){
+     $nav.removeClass('global-nav--current');
+   }
+
+   $(window).on("scroll", function() {
+		if($nav.hasClass('global-nav--current')){
+			navHide();
+		}
+	});
+})
+function get_search_box(){
+	try{
+		document.getElementById('get_search_box').click();
+	}catch(err){
+		document.getElementById('keywordfoot').focus();
+ 	}
+}
+</script>
+<div id="main-search" class="main-search">
+<div class="hd"> <span class="ico_08 close"> 关闭 </span> </div>
+<div class="bd">
+  <div class="search_box">
+    <form action="search.php" method="post" id="searchForm" name="searchForm">
+      <div class="content">
+        <input class="text" type="search" name="keywords" id="keywordBox" autofocus />
+        <button class="ico_07" type="submit" value="搜 索" onclick="return check('keywordBox')"></button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+jquery(function() {
+  jquery('nav#menu').mmenu();
+  jquery('#get_search_box').click(function(){
+    jquery(".mm-page").children('div').hide();
+    jquery("#main-search").css('position','fixed').css('top','0px').css('width','100%').css('z-index','999').show();
+    //$('#keywordBox').focus();
+  })
+  jquery("#main-search .close").click(function(){
+    jquery(".mm-page").children('div').show();
+    jquery("#main-search").hide();
+  })
+});
+
+</script>

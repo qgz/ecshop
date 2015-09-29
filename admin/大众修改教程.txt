@@ -1,0 +1,27 @@
+LOGO修改：文件路径：themes/meilele/images/logo.png 其他logo调用均在这文件夹
+
+全站广告修改：请到后台广告列表，对应前台名字修改！
+
+首页F楼层图片修改：themes/meilele/images/default/
+
+首页图标二维码修改：themes/meilele/images/common
+
+头部修改文件：themes/meilele/library/page_header.lib
+
+底部修改文件：themes/meilele/library/page_footer.lib
+
+首页文件：themes/meilele/index.dwt
+
+商品详情页面：themes/meilele/goods.dwt
+
+手机版相关修改：在根目录mobile下面
+
+微信配置：URL:你的域名/wechat/weixin.php 其他参数对应开发者中心填写后台保存后提交验证token！如果提交不
+
+成功请确认填写正确且没有空格符号，除了主机原因，一般情况下提示提交失败，反复提交几次就可以了！
+
+
+文件里未涉及到修改的，请在后台自定义设置，
+
+
+请随时留意升级信息：taobaida.taobao.com
